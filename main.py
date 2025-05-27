@@ -5,6 +5,7 @@ import torch
 import logging
 
 app = Flask(__name__)
+CORS(app)
 
 # Clases
 clases = {
@@ -58,7 +59,6 @@ def home():
 # 3. Definir la ruta de la API
 @app.route('/predict', methods=['POST'])
 def predict_email():
-    response.headers.add('Access-Control-Allow-Origin', '*')
     try:
         # Obtener el texto del correo electrónico de la solicitud
         logger.info("Recibida solicitud de predicción")
