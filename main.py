@@ -33,6 +33,7 @@ except Exception as e:
 device = torch.device("cuda" if torch.cuda.is_available() else "cpu")
 model.to(device)
 
+
 # 2. Definir la función de predicción
 def predict(text):
     # Tokenizar el texto
@@ -49,6 +50,11 @@ def predict(text):
     predicted_class = torch.argmax(probabilities, dim=-1).item()
 
     return predicted_class, probabilities.tolist()[0]
+
+
+@app.route("/")
+def home():
+    return jsonigy({"mensaje": "Holaa"})
 
 # 3. Definir la ruta de la API
 @app.route('/predict', methods=['POST'])
