@@ -54,7 +54,7 @@ def predict(text):
 
 @app.route("/")
 def home():
-    return jsonigy({"mensaje": "Holaa"})
+    return jsonify({"mensaje": "Holaa"})
 
 # 3. Definir la ruta de la API
 @app.route('/predict', methods=['POST'])
